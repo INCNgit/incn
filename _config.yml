@@ -1,7 +1,7 @@
 # ----
 # Site
 
-title: Collective dynamics and information processing in neural systems
+title: INCN
 url: "https://INCNgit.github.io/incn"
 baseurl: "/incn"
 google_analytics_key: ""
@@ -67,7 +67,7 @@ defaults:
         image:
           width: 2000
           height: 1322
-          resize_style: coverosso chiederti un favore?
+          resize_style: coverosso
         content:
           width: 1500
           height: 2000
