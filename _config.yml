@@ -3,7 +3,7 @@
 
 title: INCN
 url: "https://www.incn.it"
-baseurl: 
+baseurl: ""
 #"/incn"
 google_analytics_key: ""
 google_maps_javascript_api_key:
