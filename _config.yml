@@ -2,12 +2,13 @@
 # Site
 
 title: INCN
-url: "https://INCNgit.github.io/incn"
-baseurl: "/incn"
+url: "https://www.incn.it"
+baseurl: 
+#"/incn"
 google_analytics_key: ""
 google_maps_javascript_api_key:
 disqus_shortname:
-
+#<!--"https://INCNgit.github.io/incn"-->
 # Values for the jekyll-seo-tag gem (http://github.com/jekyll/jekyll-seo-tag)
 logo: /siteicon.png
 description: #App marketing template for Jekyll.
