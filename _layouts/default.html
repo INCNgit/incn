@@ -29,33 +29,6 @@
 	<body class="{% if page.url != '/' %}page-secondary{% endif %}">
 
 		<header id="mainHeader">
-			<div class="container" style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 10px;">
-		  
-			  <!-- Riga con logo + scritta -->
-			  <div style="display: flex; align-items: center; gap: 12px;">
-				<a href="{{ site.baseurl }}/">
-				  <img src="{{ site.baseurl }}/images/logo/INCN_logo.png" alt="INCN logo" style="height: 48px; width: auto;">
-				</a>
-				<div style="line-height: 1.2; font-family: 'Lato', sans-serif; color: white;">
-				  <div style="font-size: 22px; font-weight: 600;">INCN</div>
-				  <div style="font-size: 14px; font-weight: 300;">Italian Network of Computational Neuroscience</div>
-				</div>
-			  </div>
-		  
-			  <!-- Barra di navigazione -->
-			  {% include navigation.html %}
-		  
-			  <!-- (opzionale) pulsante di modifica -->
-			  <p class="editor-link">
-				<a style="display:inline;" href="cloudcannon:collections/_data/navigation.yml" class="btn">
-				  <strong>&#9998;</strong> Edit navigation
-				</a>
-			  </p>
-			</div>
-		  </header>
-
-		<!-- 
-		<header id="mainHeader">
 			<div class="container">
 				<div class="company-name">
 					<a href="{{ site.baseurl }}/">
@@ -67,7 +40,7 @@
 				<p class="editor-link"><a style="display:inline;" href="cloudcannon:collections/_data/navigation.yml" class="btn"><strong>&#9998;</strong> Edit navigation</a></p>
 			</div>
 		</header>
-		-->
+
 		{{ content }}
 
 		<footer>
