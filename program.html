@@ -4,6 +4,47 @@ description: Program of the conference.
 image: /images/background/backpd.png
 ---
 
+
+<style>
+
+.learn-more {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+	flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.learn-more a {
+    font-size: 22px;
+    padding: 8px 16px;
+    min-width: 120px;
+    display: inline-block;
+    color: #fff;
+    /*text-decoration: none;*/
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.learn-more a:hover {
+    color: #ffa74d;
+}
+
+@media screen and (max-width: 768px) {
+    .learn-more {
+        display: none;
+    }
+}
+
+</style>
+
 <section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
 	<div class="inner-hero text-container">
 		<div class="hero-text-container">
@@ -11,55 +52,44 @@ image: /images/background/backpd.png
 			<p class="subtext editable">Schedule of the conference</p>
 		</div>
 	</div>
+
+	<div class="learn-more">
+		<a href="#schedule"><span class="highlight">Schedule </span><span class="arrow">&#x25BC;</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#booklet"><span class="highlight">Booklets of the Abstracts </span><span class="arrow">&#x25BC;</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+	</div>
+
 </section>
 
 
 
 <div class="content">
-	<section class="info" id="learn-more">
-		<div class="container flex">
-			<div class="text">
-				<p class="registration-text editable">The program of the conference and the abstract booklet will be soon available!</p>
-			</div>
-		</div>
-	</section>
 
-	<!--
-	<section class="info">
-		<div class="container flex">
-			<div class="text">
-				<h2 class="editable">School Structure and Content</h2>
-				<p class="editable">The school is structured over 6 days, from Monday to Saturday. 
-					The main lectures we will address four different topics: 
-					1) Neural dynamics: modelling; 2) Information processing, coding and perception in neural systems;
-					3) From human learning to machine learning and back; 4) Structural and functional networks in the brain.
-					Each topic will include frontal lectures, tutorials and hands on projects (see Table below). 
-					A series of four seminars will complete each lessons showing the state of the art of related research on 
-					that topic. </p>
-		 </div>
-	</section>
-</div>
+  <section class="info" id="schedule">
+    <div class="container flex">
+      <div class="text">
 
-<div class="content">
-	<section class="info" id="learn-more">
-		<div class="container flex">
-			<div class="text">
-				<h2 class="editable">Program</h2>
-				<p>The preliminary program of the conference is now available</a>:</p>
-				<iframe src="../files/FINAL_PROGRAM_Contamineuro.pdf" width="100%" height="800px"></iframe>
-			</div>
-		</div>
-	</section>
+        <h2 class="editable">The preliminary Program of the Conference is now available</h2>
 
-	<section class="info" id="learn-more">
-		<div class="container flex">
-			<div class="text">
-				<h2 class="editable">Abstract booklet</h2>
-				<p>The abstract booklet is still unavailable.</p>
-			</div>
+        <p class="subtext editable" style="text-shadow: 1px 1px 5px lightgrey;">
+          Schedule:  <a href="{{ site.baseurl }}/files/PROGRAM_2025.pdf" target="_blank">Download PDF</a>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+ <section class="info" id="booklet">
+    <div class="container flex">
+      <div class="text">
+
+        <h2 class="editable">Booklets of the Abstracts</h2>
+
+		<div class="text">
+			<p class="registration-text editable">The Booklets of the Abstracts will be soon available!</p>
 		</div>
-	</section>
-</div>
--->
+
+      </div>
+    </div>
+  </section>
 
 </div>
