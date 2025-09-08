@@ -45,53 +45,49 @@ image: /images/background/backpd.png
 
 
 
-  /* Contenitore: centrato, ma testo allineato a sinistra */
-  .program-wrap {
-    max-width: 980px;   /* adatta se vuoi */
-    margin: 1.25rem auto 0;
-    padding: 0 16px;
-  }
+/* Programma: resta dentro alla colonna .text del sito */
+.text .program { margin-top: 1.25rem; }
 
-  .program-day { margin: 2rem 0 1rem; }
-  .program-day .date {
-    font-weight: 700; color: #ffa74d; letter-spacing: .02em;
-    font-size: .95rem; text-transform: uppercase;
-  }
-  .program-sep {
-    border: 0; height: 1px;
-    background: linear-gradient(90deg, rgba(0,0,0,.08), rgba(0,0,0,.25), rgba(0,0,0,.08));
-    margin: .75rem 0 1rem;
-    max-width: 100%; /* resta dentro al wrap */
-  }
+/* Giorno + separatore */
+.text .program-day { margin: 2rem 0 1rem; }
+.text .program-day .date {
+  font-weight: 700; color: #ffa74d; letter-spacing: .02em;
+  font-size: .95rem; text-transform: uppercase;
+}
+.text .program-sep {
+  border: 0; height: 1px;
+  background: linear-gradient(90deg, rgba(0,0,0,.08), rgba(0,0,0,.25), rgba(0,0,0,.08));
+  margin: .75rem 0 1rem;
+  width: 100%;   /* resta dentro .text */
+}
 
-  /* Layout slot: orario a sinistra, dettagli a destra */
-  .slot {
-    display: grid; grid-template-columns: 120px 1fr;
-    column-gap: 14px; align-items: start; padding: .5rem 0;
-  }
-  .time {
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap; color: #111;
-  }
+/* Slot: orario a sinistra, dettagli a destra */
+.text .slot {
+  display: grid; grid-template-columns: 120px 1fr;
+  column-gap: 16px; align-items: start; padding: .5rem 0;
+}
+.text .slot .time {
+  font-variant-numeric: tabular-nums; white-space: nowrap; color: #111;
+}
+.text .slot .details { display: block; }
 
-  /* Dettagli: talk type sopra al nome */
-  .kind {
-    font-size: .85rem; text-transform: none; letter-spacing: .02em;
-    opacity: .85; margin: 0 0 .15rem;
-  }
-  .speaker { color: #ffa74d; font-weight: 700; }
-  .affil { opacity: .85; }
-  .talktitle { margin: .2rem 0 0; opacity: .9; }
+/* Tipo talk sopra al nome (niente badge) */
+.text .slot .kind {
+  font-size: .85rem; letter-spacing: .02em; opacity: .85; margin: 0 0 .2rem;
+}
+.text .slot .speaker { color: #ffa74d; font-weight: 700; }
+.text .slot .affil { opacity: .85; }
+.text .slot .talktitle { margin: .25rem 0 0; opacity: .9; }
 
-  /* Break, lunch, ecc. */
-  .slot.break .time { font-weight: 600; }
-  .slot.break .line { font-weight: 600; }
+/* Break/Lunch */
+.text .slot.break .time { font-weight: 600; }
+.text .slot.break .line { font-weight: 600; }
 
-  /* Mobile */
-  @media (max-width: 640px) {
-    .slot { grid-template-columns: 96px 1fr; }
-  }
-
+/* Mobile */
+@media (max-width: 640px) {
+  .text .slot { grid-template-columns: 96px 1fr; }
+}
+  
 </style>
 
 
@@ -130,418 +126,449 @@ image: /images/background/backpd.png
       </div>
     </div>
 
+    <div class="program" id="program">
 
+      <!-- ====================== MONDAY ====================== -->
+      <div class="program-day" id="monday">
+        <div class="date">MONDAY, SEPTEMBER 22, 2025</div>
+        <hr class="program-sep"/>
 
-  <div class="program-wrap" id="program">
-
-    <!-- ====================== MONDAY ====================== -->
-    <div class="program-day" id="monday">
-      <div class="date">MONDAY, SEPTEMBER 22, 2025</div>
-      <hr class="program-sep"/>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">09:30-10:00</div>
-        <div class="line"><strong>Ambra Ferrari</strong>  |  <span class="affil">University of Trento, Italy</span>
-          <div class="talktitle">How the brain binds information across the senses.</div>
+        <div class="slot">
+          <div class="time">09:30-10:00</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Ambra Ferrari</span> | <span class="affil">University of Trento, Italy</span></div>
+            <div class="talktitle">How the brain binds information across the senses.</div>
+          </div>
         </div>
-      </div>
 
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">10:00-10:30</div>
-        <div class="line"><strong>Pietro Avanzini</strong>  |  <span class="affil">CNR, Istituto di Neuroscienze, Parma, Italy</span></div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot break">
-        <div class="time">10:30-11:30</div>
-        <div class="line">Poster Session I with Coffee Break</div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot contrib">
-        <div class="kind">Contributed Talk <span class="badge">Contributed</span></div>
-        <div class="time">11:30-11:45</div>
-        <div class="line"><strong>Silvia Gini</strong>  |  <span class="affil">University of Trento – Italian Institute of Technoloty, Italy</span>
-          <div class="talktitle">Brain state shapes the intrinsic sender-to-receiver architecture of the mouse brain.</div>
+        <div class="slot">
+          <div class="time">10:00-10:30</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Pietro Avanzini</span> | <span class="affil">CNR, Istituto di Neuroscienze, Parma, Italy</span></div>
+          </div>
         </div>
-      </div>
 
-      <div class="slot contrib">
-        <div class="kind">Contributed Talk <span class="badge">Contributed</span></div>
-        <div class="time">11:45-12:00</div>
-        <div class="line"><strong>Danilo Benozzo</strong>  |  <span class="affil">University of Pavia, Italy</span>
-          <div class="talktitle">Linking time-lagged functional dynamics to structural constraints in resting-state fMRI.</div>
+        <hr class="program-sep"/>
+
+        <div class="slot break">
+          <div class="time">10:30-11:30</div>
+          <div class="details"><div class="line">Poster Session I with Coffee Break</div></div>
         </div>
-      </div>
 
-      <div class="slot contrib">
-        <div class="kind">Contributed Talk <span class="badge">Contributed</span></div>
-        <div class="time">12:00-12:15</div>
-        <div class="line"><strong>Giacomo Barzon</strong>  |  <span class="affil">Padova Neuroscience Center, Italy</span>
-          <div class="talktitle">Information Coding in Excitatory–Inhibitory populations: The Roles of Balance and Plasticity</div>
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">11:30-11:45</div>
+          <div class="details">
+            <div class="kind">Contributed Talk</div>
+            <div class="line"><span class="speaker">Silvia Gini</span> | <span class="affil">University of Trento – Italian Institute of Technoloty, Italy</span></div>
+            <div class="talktitle">Brain state shapes the intrinsic sender-to-receiver architecture of the mouse brain.</div>
+          </div>
         </div>
-      </div>
 
-      <div class="slot contrib">
-        <div class="kind">Contributed Talk <span class="badge">Contributed</span></div>
-        <div class="time">12:15-12:30</div>
-        <div class="line"><strong>Marco Celotto</strong>  |  <span class="affil">Massachussetts Institute of Technology, USA</span>
-          <div class="talktitle">Astrocyte-norepinephrine interactions tune cortical neuronal encoding to guide behavioral adaptation.</div>
+        <div class="slot">
+          <div class="time">11:45-12:00</div>
+          <div class="details">
+            <div class="kind">Contributed Talk</div>
+            <div class="line"><span class="speaker">Danilo Benozzo</span> | <span class="affil">University of Pavia, Italy</span></div>
+            <div class="talktitle">Linking time-lagged functional dynamics to structural constraints in resting-state fMRI.</div>
+          </div>
         </div>
-      </div>
 
-      <hr class="program-sep"/>
-
-      <div class="slot break">
-        <div class="time">12:30-14:00</div>
-        <div class="line">Lunch</div>
-      </div>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">14:00-14:30</div>
-        <div class="line"><strong>Alessio Fracasso</strong>  |  <span class="affil">University of Padova, Italy</span>
-          <div class="talktitle">Modelling cortical oculo-motor planning and execution at high-field, a 7T approach.</div>
+        <div class="slot">
+          <div class="time">12:00-12:15</div>
+          <div class="details">
+            <div class="kind">Contributed Talk</div>
+            <div class="line"><span class="speaker">Giacomo Barzon</span> | <span class="affil">Padova Neuroscience Center, Italy</span></div>
+            <div class="talktitle">Information Coding in Excitatory–Inhibitory populations: The Roles of Balance and Plasticity</div>
+          </div>
         </div>
-      </div>
 
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">14:30-15:00</div>
-        <div class="line"><strong>Alberto Testolin</strong>  |  <span class="affil">University of Padova, Italy</span>
-          <div class="talktitle">Modeling numerosity perception with generative neural networks.</div>
+        <div class="slot">
+          <div class="time">12:15-12:30</div>
+          <div class="details">
+            <div class="kind">Contributed Talk</div>
+            <div class="line"><span class="speaker">Marco Celotto</span> | <span class="affil">Massachussetts Institute of Technology, USA</span></div>
+            <div class="talktitle">Astrocyte-norepinephrine interactions tune cortical neuronal encoding to guide behavioral adaptation.</div>
+          </div>
         </div>
-      </div>
 
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">15:00-15:30</div>
-        <div class="line"><strong>Eleonora Maggioni</strong>  |  <span class="affil">Politecnico di Milano, Italy</span>
-          <div class="talktitle">Integrating electrophysiological and neuroimaging techniques to study brain-body interactions in physiology and psychiatry.</div>
+        <hr class="program-sep"/>
+
+        <div class="slot break">
+          <div class="time">12:30-14:00</div>
+          <div class="details"><div class="line">Lunch</div></div>
         </div>
-      </div>
 
-      <hr class="program-sep"/>
-
-      <div class="slot break">
-        <div class="time">15:30-16:30</div>
-        <div class="line">Poster Session I with Coffee Break</div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">16:30-17:00</div>
-        <div class="line"><strong>Alessandro Gozzi</strong>  |  <span class="affil">Istituto Italiano di Tecnologia – Rovereto, Italy</span>
-          <div class="talktitle">Perturbational decoding of fMRI connectivity.</div>
+        <div class="slot">
+          <div class="time">14:00-14:30</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Alessio Fracasso</span> | <span class="affil">University of Padova, Italy</span></div>
+            <div class="talktitle">Modelling cortical oculo-motor planning and execution at high-field, a 7T approach.</div>
+          </div>
         </div>
-      </div>
 
-      <hr class="program-sep"/>
-
-      <div class="slot keynote">
-        <div class="kind">Keynote Talk <span class="badge">Keynote</span></div>
-        <div class="time">17:00-18:00</div>
-        <div class="line"><strong>Simona Cocco</strong>  |  <span class="affil">ENS, France</span>
-          <div class="talktitle">Data driven models in zebrafish navigation: combining neural and behavioral data.</div>
+        <div class="slot">
+          <div class="time">14:30-15:00</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Alberto Testolin</span> | <span class="affil">University of Padova, Italy</span></div>
+            <div class="talktitle">Modeling numerosity perception with generative neural networks.</div>
+          </div>
         </div>
+
+        <div class="slot">
+          <div class="time">15:00-15:30</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Eleonora Maggioni</span> | <span class="affil">Politecnico di Milano, Italy</span></div>
+            <div class="talktitle">Integrating electrophysiological and neuroimaging techniques to study brain-body interactions in physiology and psychiatry.</div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot break">
+          <div class="time">15:30-16:30</div>
+          <div class="details"><div class="line">Poster Session I with Coffee Break</div></div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">16:30-17:00</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Alessandro Gozzi</span> | <span class="affil">Istituto Italiano di Tecnologia – Rovereto, Italy</span></div>
+            <div class="talktitle">Perturbational decoding of fMRI connectivity.</div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">17:00-18:00</div>
+          <div class="details">
+            <div class="kind">Keynote Talk</div>
+            <div class="line"><span class="speaker">Simona Cocco</span> | <span class="affil">ENS, France</span></div>
+            <div class="talktitle">Data driven models in zebrafish navigation: combining neural and behavioral data.</div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot break">
+          <div class="time">20:00</div>
+          <div class="details"><div class="line">Social Dinner with invited speakers</div></div>
+        </div>
+
+        <hr class="program-sep"/>
       </div>
 
-      <hr class="program-sep"/>
+      <!-- ====================== TUESDAY ====================== -->
+      <div class="program-day" id="tuesday">
+        <div class="date">TUESDAY, SEPTEMBER 23rd, 2025</div>
+        <hr class="program-sep"/>
 
-      <div class="slot break">
-        <div class="time">20:00</div>
-        <div class="line">Social Dinner with invited speakers</div>
+        <div class="slot">
+          <div class="time">09:00-09:30</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Eugenio Piasini</span> | <span class="affil">SISSA, Italy</span></div>
+            <div class="talktitle">How sharp is your razor? Quantifying the bias for simpler explanations in human decision-making.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">09:30-10:00</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Emanuele Menegatti</span> | <span class="affil">University of Padova, Italy</span></div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">10:00-10:30</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Manfredo Atzori</span> | <span class="affil">University of Padova, Italy</span></div>
+            <div class="talktitle">Knowledge Extraction from Multimodal Biomedical Data in Neuroscience.</div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot break">
+          <div class="time">10:30-11:30</div>
+          <div class="details"><div class="line">Poster Session II with Coffee Break</div></div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">11:30-11:45</div>
+          <div class="details">
+            <div class="kind">Contributed Talk</div>
+            <div class="line"><span class="speaker">Riccardo Zecchina</span> | <span class="affil">Computing Science Dept., Bocconi, Italy</span></div>
+            <div class="talktitle">Dynamical Deep Learning in Asymmetric Recurrent Networks.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">11:45-12:00</div>
+          <div class="details">
+            <div class="kind">Contributed Talk</div>
+            <div class="line"><span class="speaker">Federico Del Pup</span> | <span class="affil">University of Padova, Italy</span></div>
+            <div class="talktitle">Addressing Generalizability Issues in Deep Learning-Based Electroencephalography Data Analysis.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">12:00-12:15</div>
+          <div class="details">
+            <div class="kind">Contributed Talk</div>
+            <div class="line"><span class="speaker">Simona Olmi</span> | <span class="affil">Istituto dei Sistemi Complessi (ISC-CNR), Italy</span></div>
+            <div class="talktitle">Relaxation oscillations in next-generation neural masses with spike-frequency adaptation.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">12:15-12:30</div>
+          <div class="details">
+            <div class="kind">Contributed Talk</div>
+            <div class="line"><span class="speaker">Cristina Zucca</span> | <span class="affil">University of Torino, Italy</span></div>
+            <div class="talktitle">Uncovering Input-Output Dynamics in Single Neuron Model through Mutual Information.</div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot break">
+          <div class="time">12:30-14:00</div>
+          <div class="details"><div class="line">Lunch</div></div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">14:00-14:30</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Loredana Bellantuono</span> | <span class="affil">University of Bari, Italy</span></div>
+            <div class="talktitle">Brain Connectivity Biomarkers: A Complex Network &amp; XAI Approach to Neurological, Developmental, and Age-Related Conditions.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">14.30-15:00</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Claudia Casellato</span> | <span class="affil">University of Pavia, Italy</span></div>
+            <div class="talktitle">Multiscale cerebellar circuit models.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">15:00-15.30</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Alessandro Torcini</span> | <span class="affil">CY Cergy Paris University, France</span></div>
+            <div class="talktitle">A theory for self-sustained balanced states in absence of strong external currents.</div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot break">
+          <div class="time">15:30-16:30</div>
+          <div class="details"><div class="line">Poster Session II with Coffee Break</div></div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">16:30-17:00</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Valentina Carabelli</span> | <span class="affil">University of Torino, Italy</span></div>
+            <div class="talktitle">Diamond-based multiarrays and NV centers in nanodiamonds as probes for monitoring neuronal activity down to the nanoscale.</div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">17:00-18:00</div>
+          <div class="details">
+            <div class="kind">Keynote Talk</div>
+            <div class="line"><span class="speaker">Wolfgang Maass</span> | <span class="affil">Graz University of Technology, Austria</span></div>
+            <div class="talktitle">Clues for the implementation of brain intelligence.</div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">21:00-22:00</div>
+          <div class="details">
+            <div class="line"><strong>Public Lecture</strong></div>
+            <div class="line"><span class="speaker">Luca Mazzucato</span> | <span class="affil">University of Oregon, USA</span></div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
       </div>
 
-      <hr class="program-sep"/>
+      <!-- ====================== WEDNESDAY ====================== -->
+      <div class="program-day" id="wednesday">
+        <div class="date">WEDNESDAY, SEPTEMBER 24th, 2025</div>
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">09:00-09:15</div>
+          <div class="details">
+            <div class="kind">Contributed Talk</div>
+            <div class="line"><span class="speaker">Elisa Tentori</span> | <span class="affil">University of Padova, Italy</span></div>
+            <div class="talktitle">Prediction and Modulation of Network Responses in Spiking Neuronal Cultures via Effective Connectivity and Latent State Dynamics.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">09:15-09:30</div>
+          <div class="details">
+            <div class="kind">Contributed Talk</div>
+            <div class="line"><span class="speaker">Margherita Premi</span> | <span class="affil">Politecnico di Milano, Italy</span></div>
+            <div class="talktitle">A Computational Pipeline for Simulating Mouse Visual Cortex Microcircuits with Spiking Neural Networks.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">09:30-09:45</div>
+          <div class="details">
+            <div class="kind">Contributed Talk</div>
+            <div class="line"><span class="speaker">Gianni Valerio Vinci</span> | <span class="affil">Istituto Superiore di Sanità – Rome, Italy</span></div>
+            <div class="talktitle">Noise induced phase transition in cortical neural field: the role of finite-size fluctuations.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">09:45-10:00</div>
+          <div class="details">
+            <div class="kind">Contributed Talk</div>
+            <div class="line"><span class="speaker">Cosimo Lupo</span> | <span class="affil">INFN – Rome, Italy</span></div>
+            <div class="talktitle">Cobrawap: studying the wave dynamics as a tool for understanding brain networks.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">10:00-10:30</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Tommaso Gili</span> | <span class="affil">IMT School of Advanced Studies – Lucca, Italy</span></div>
+            <div class="talktitle">Fibration symmetries support functional transitions in neural networks.</div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot break">
+          <div class="time">10:30-11:30</div>
+          <div class="details"><div class="line">Poster Session III with Coffee Break</div></div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">11:30-12:00</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Sergio Martinoia</span> | <span class="affil">University of Genova, Italy</span></div>
+            <div class="talktitle">Biological and digital brain twins: in-vitro and in-silico brain models</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">12:00-12:30</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Silvestro Micera</span></div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot break">
+          <div class="time">12:30-13:30</div>
+          <div class="details"><div class="line">Lunch</div></div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">13:30-14:00</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Victor Buendia</span> | <span class="affil">Computing Science Dept., Bocconi, Italy</span></div>
+            <div class="talktitle">Modularity in excitatory-inhibitory networks controls the dynamical regime and optimizes their computational capabilities.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">14:00-14:30</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Alessandro Treves</span> | <span class="affil">SISSA, Italy</span></div>
+            <div class="talktitle">Disorder and Frustration in Spatial Cognition: The Demise of an Old Map.</div>
+          </div>
+        </div>
+
+        <div class="slot">
+          <div class="time">14:30-15:00</div>
+          <div class="details">
+            <div class="kind">Invited Talk</div>
+            <div class="line"><span class="speaker">Francesca Mastrogiuseppe</span> | <span class="affil">Champalimaud Foundation, Portugal</span></div>
+            <div class="talktitle">Input-dependent Directionality of Interactions Between Cortical Areas.</div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">15:00-16:00</div>
+          <div class="details">
+            <div class="kind">Keynote Talk</div>
+            <div class="line"><span class="speaker">Andrea Brovelli</span> | <span class="affil">Aix-Marseille University, France</span></div>
+            <div class="talktitle">Intrinsic motivational signals for information seeking and causal learning</div>
+          </div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot break">
+          <div class="time">16:00-16:30</div>
+          <div class="details"><div class="line">Poster Session III with Coffee Break</div></div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">16:30-17:30</div>
+          <div class="details"><div class="line">Assemblea INCTN</div></div>
+        </div>
+
+        <hr class="program-sep"/>
+
+        <div class="slot">
+          <div class="time">17:30</div>
+          <div class="details"><div class="line">Conclusions</div></div>
+        </div>
+
+        <hr class="program-sep"/>
+      </div>
     </div>
-
-    <!-- ====================== TUESDAY ====================== -->
-    <div class="program-day" id="tuesday">
-      <div class="date">TUESDAY, SEPTEMBER 23rd, 2025</div>
-      <hr class="program-sep"/>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">09:00-09:30</div>
-        <div class="line"><strong>Eugenio Piasini</strong>   |  <span class="affil">SISSA, Italy</span>
-          <div class="talktitle">How sharp is your razor? Quantifying the bias for simpler explanations in human decision-making.</div>
-        </div>
-      </div>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">09:30-10:00</div>
-        <div class="line"><strong>Emanuele Menegatti</strong>  |  <span class="affil">University of Padova, Italy</span></div>
-      </div>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">10:00-10:30</div>
-        <div class="line"><strong>Manfredo Atzori</strong>  |  <span class="affil">University of Padova, Italy</span>
-          <div class="talktitle">Knowledge Extraction from Multimodal Biomedical Data in Neuroscience.</div>
-        </div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot break">
-        <div class="time">10:30-11:30</div>
-        <div class="line">Poster Session II with Coffee Break</div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot contrib">
-        <div class="kind">Contributed Talk <span class="badge">Contributed</span></div>
-        <div class="time">11:30-11:45</div>
-        <div class="line"><strong>Riccardo Zecchina</strong>  |  <span class="affil">Computing Science Dept., Bocconi, Italy</span>
-          <div class="talktitle">Dynamical Deep Learning in Asymmetric Recurrent Networks.</div>
-        </div>
-      </div>
-
-      <div class="slot contrib">
-        <div class="kind">Contributed Talk <span class="badge">Contributed</span></div>
-        <div class="time">11:45-12:00</div>
-        <div class="line"><strong>Federico Del Pup</strong>  |  <span class="affil">University of Padova, Italy</span>
-          <div class="talktitle">Addressing Generalizability Issues in Deep Learning-Based Electroencephalography Data Analysis.</div>
-        </div>
-      </div>
-
-      <div class="slot contrib">
-        <div class="kind">Contributed Talk <span class="badge">Contributed</span></div>
-        <div class="time">12:00-12:15</div>
-        <div class="line"><strong>Simona Olmi</strong>  |  <span class="affil">Istituto dei Sistemi Complessi (ISC-CNR), Italy</span>
-          <div class="talktitle">Relaxation oscillations in next-generation neural masses with spike-frequency adaptation.</div>
-        </div>
-      </div>
-
-      <div class="slot contrib">
-        <div class="kind">Contributed Talk <span class="badge">Contributed</span></div>
-        <div class="time">12:15-12:30</div>
-        <div class="line"><strong>Cristina Zucca</strong>  |  <span class="affil">University of Torino, Italy</span>
-          <div class="talktitle">Uncovering Input-Output Dynamics in Single Neuron Model through Mutual Information.</div>
-        </div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot break">
-        <div class="time">12:30-14:00</div>
-        <div class="line">Lunch</div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">14:00-14:30</div>
-        <div class="line"><strong>Loredana Bellantuono</strong>  |  <span class="affil">University of Bari, Italy</span>
-          <div class="talktitle">Brain Connectivity Biomarkers: A Complex Network &amp; XAI Approach to Neurological, Developmental, and Age-Related Conditions.</div>
-        </div>
-      </div>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">14.30-15:00</div>
-        <div class="line"><strong>Claudia Casellato</strong>  |  <span class="affil">University of Pavia, Italy</span>
-          <div class="talktitle">Multiscale cerebellar circuit models.</div>
-        </div>
-      </div>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">15:00-15.30</div>
-        <div class="line"><strong>Alessandro Torcini</strong>  |  <span class="affil">CY Cergy Paris University, France</span>
-          <div class="talktitle">A theory for self-sustained balanced states in absence of strong external currents.</div>
-        </div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot break">
-        <div class="time">15:30-16:30</div>
-        <div class="line">Poster Session II with Coffee Break</div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">16:30-17:00</div>
-        <div class="line"><strong>Valentina Carabelli</strong>  |  <span class="affil">University of Torino, Italy</span>
-          <div class="talktitle">Diamond-based multiarrays and NV centers in nanodiamonds as probes for monitoring neuronal activity down to the nanoscale.</div>
-        </div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot keynote">
-        <div class="kind">Keynote Talk <span class="badge">Keynote</span></div>
-        <div class="time">17:00-18:00</div>
-        <div class="line"><strong>Wolfgang Maass</strong>  |  <span class="affil">Graz University of Technology, Austria</span>
-          <div class="talktitle">Clues for the implementation of brain intelligence.</div>
-        </div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot">
-        <div class="time">21:00-22:00</div>
-        <div class="line"><strong>Public Lecture</strong><br/>
-          <strong>Luca Mazzucato</strong>  |  <span class="affil">University of Oregon, USA</span>
-        </div>
-      </div>
-
-      <hr class="program-sep"/>
-    </div>
-
-    <!-- ====================== WEDNESDAY ====================== -->
-    <div class="program-day" id="wednesday">
-      <div class="date">WEDNESDAY, SEPTEMBER 24th, 2025</div>
-      <hr class="program-sep"/>
-
-      <div class="slot contrib">
-        <div class="kind">Contributed Talk <span class="badge">Contributed</span></div>
-        <div class="time">09:00-09:15</div>
-        <div class="line"><strong>Elisa Tentori</strong>  |  <span class="affil">University of Padova, Italy</span>
-          <div class="talktitle">Prediction and Modulation of Network Responses in Spiking Neuronal Cultures via Effective Connectivity and Latent State Dynamics.</div>
-        </div>
-      </div>
-
-      <div class="slot contrib">
-        <div class="kind">Contributed Talk <span class="badge">Contributed</span></div>
-        <div class="time">09:15-09:30</div>
-        <div class="line"><strong>Margherita Premi</strong>  |  <span class="affil">Politecnico di Milano, Italy</span>
-          <div class="talktitle">A Computational Pipeline for Simulating Mouse Visual Cortex Microcircuits with Spiking Neural Networks.</div>
-        </div>
-      </div>
-
-      <div class="slot contrib">
-        <div class="kind">Contributed Talk <span class="badge">Contributed</span></div>
-        <div class="time">09:30-09:45</div>
-        <div class="line"><strong>Gianni Valerio Vinci</strong>  |  <span class="affil">Istituto Superiore di Sanità – Rome, Italy</span>
-          <div class="talktitle">Noise induced phase transition in cortical neural field: the role of finite-size fluctuations.</div>
-        </div>
-      </div>
-
-      <div class="slot contrib">
-        <div class="kind">Contributed Talk <span class="badge">Contributed</span></div>
-        <div class="time">09:45-10:00</div>
-        <div class="line"><strong>Cosimo Lupo</strong>  |  <span class="affil">INFN – Rome, Italy</span>
-          <div class="talktitle">Cobrawap: studying the wave dynamics as a tool for understanding brain networks.</div>
-        </div>
-      </div>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">10:00-10:30</div>
-        <div class="line"><strong>Tommaso Gili</strong>  |  <span class="affil">IMT School of Advanced Studies – Lucca, Italy</span>
-          <div class="talktitle">Fibration symmetries support functional transitions in neural networks.</div>
-        </div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot break">
-        <div class="time">10:30-11:30</div>
-        <div class="line">Poster Session III with Coffee Break</div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">11:30-12:00</div>
-        <div class="line"><strong>Sergio Martinoia</strong>  |  <span class="affil">University of Genova, Italy</span>
-          <div class="talktitle">Biological and digital brain twins: in-vitro and in-silico brain models</div>
-        </div>
-      </div>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">12:00-12:30</div>
-        <div class="line"><strong>Silvestro Micera</strong></div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot break">
-        <div class="time">12:30-13:30</div>
-        <div class="line">Lunch</div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">13:30-14:00</div>
-        <div class="line"><strong>Victor Buendia</strong>  |  <span class="affil">Computing Science Dept., Bocconi, Italy</span>
-          <div class="talktitle">Modularity in excitatory-inhibitory networks controls the dynamical regime and optimizes their computational capabilities.</div>
-        </div>
-      </div>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">14:00-14:30</div>
-        <div class="line"><strong>Alessandro Treves</strong>  |  <span class="affil">SISSA, Italy</span>
-          <div class="talktitle">Disorder and Frustration in Spatial Cognition: The Demise of an Old Map.</div>
-        </div>
-      </div>
-
-      <div class="slot invited">
-        <div class="kind">Invited Talk <span class="badge">Invited</span></div>
-        <div class="time">14:30-15:00</div>
-        <div class="line"><strong>Francesca Mastrogiuseppe</strong>  |  <span class="affil">Champalimaud Foundation, Portugal</span>
-          <div class="talktitle">Input-dependent Directionality of Interactions Between Cortical Areas.</div>
-        </div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot keynote">
-        <div class="kind">Keynote Talk <span class="badge">Keynote</span></div>
-        <div class="time">15:00-16:00</div>
-        <div class="line"><strong>Andrea Brovelli</strong>  |  <span class="affil">Aix-Marseille University, France</span>
-          <div class="talktitle">Intrinsic motivational signals for information seeking and causal learning</div>
-        </div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot break">
-        <div class="time">16:00-16:30</div>
-        <div class="line">Poster Session III with Coffee Break</div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot">
-        <div class="time">16:30-17:30</div>
-        <div class="line">Assemblea INCTN</div>
-      </div>
-
-      <hr class="program-sep"/>
-
-      <div class="slot">
-        <div class="time">17:30</div>
-        <div class="line">Conclusions</div>
-      </div>
-
-      <hr class="program-sep"/>
-    </div>
-  </div>
-
-
-
-
-
 
 
 
