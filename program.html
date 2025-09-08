@@ -76,7 +76,14 @@ image: /images/background/backpd.png
   font-size: .85rem; letter-spacing: .02em; opacity: .85; margin: 0 0 .2rem;
 }
 .text .slot .speaker { color: #ffa74d; font-weight: 700; }
-.text .slot .affil { opacity: .85; }
+
+/* Affiliazioni: corsivo, un filo più piccole, grigio scuro */
+.text .slot .affil {
+  font-style: italic;
+  font-size: 0.95em;   /* appena più piccole */
+  color: #3a3a3a;      /* grigio scuro leggibile */
+  opacity: 0.9;          /* togliamo l'opacità per mantenere il contrasto */
+}
 .text .slot .talktitle { margin: .25rem 0 0; opacity: .9; }
 
 /* Break/Lunch */
